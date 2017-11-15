@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent ubuntu_16_04_x86_64
 
     stages {
         stage('Build') {
