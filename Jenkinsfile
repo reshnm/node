@@ -1,5 +1,7 @@
 pipeline {
-    agent agent1
+    agent {
+        label 'agent1'
+    }
     stages {
         stage('ubuntu_16_04_x86_64') {
             agent {
