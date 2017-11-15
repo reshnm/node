@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh './configure'
-                sh 'make'
+                sh 'make -j8'
             }
         }
     }
