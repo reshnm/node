@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent agent1
     stages {
         stage('ubuntu_16_04_x86_64') {
             agent {
