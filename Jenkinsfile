@@ -1,10 +1,7 @@
 pipeline {
     agent any
     stages {
-        agent {
-            label 'Linux_x86_64'
-        }
-        stage('Build') {
+        stage('Ubunut 16.04 x86_64') {
             agent {
                 dockerfile { dir 'docker/ubuntu_16_04_x86_64' }
             }
