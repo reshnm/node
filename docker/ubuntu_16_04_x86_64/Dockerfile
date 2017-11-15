@@ -1,4 +1,4 @@
 FROM ubuntu:16.04
 
 RUN apt-get update
-RUN apt-get install python make gcc g++
+RUN apt-get install -y python make gcc g++
