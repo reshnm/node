@@ -1,25 +1,27 @@
 pipeline {
     agent any
     stages {
-        parallel {
-            stage('Ubuntu 16.04 x86_64') {
-                agent {
-                    dockerfile { dir 'docker/ubuntu_16_04_x86_64' }
+        stage('Build') {
+            parallel {
+                stage('Ubuntu 16.04 x86_64') {
+                    agent {
+                        dockerfile { dir 'docker/ubuntu_16_04_x86_64' }
+                    }
+                    steps {
+                        sh 'make clean'
+                        sh './configure'
+                        sh 'make -j8'
+                    }
                 }
-                steps {
-                    sh 'make clean'
-                    sh './configure'
-                    sh 'make -j8'
-                }
-            }
-            stage('Fedora 27 x86_64') {
-                agent {
-                    dockerfile { dir 'docker/fedora_27_x86_64' }
-                }
-                steps {
-                    sh 'make clean'
-                    sh './configure'
-                    sh 'make -j8'
+                stage('Fedora 27 x86_64') {
+                    agent {
+                        dockerfile { dir 'docker/fedora_27_x86_64' }
+                    }
+                    steps {
+                        sh 'make clean'
+                        sh './configure'
+                        sh 'make -j8'
+                    }
                 }
             }
         }
