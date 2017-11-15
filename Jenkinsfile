@@ -1,7 +1,7 @@
 pipeline {
     agent any
-    stages {
-        node('Linux_x86_64') {
+    node('Linux_x86_64') {
+        stages {
             stage('ubuntu_16_04_x86_64') {
                 agent {
                     dockerfile { dir 'docker/ubuntu_16_04_x86_64' }
