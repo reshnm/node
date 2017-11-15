@@ -10,10 +10,11 @@ pipeline {
                     steps {
                         sh './configure'
                         sh 'make -j8'
+                        sh 'cp out/Release/node node_ubuntu_16_04_x86_64'
                     }
                     post {
                         success {
-                            archive "out/Release/node"
+                            archive 'node_ubuntu_16_04_x86_64'
                         }
                     }
                 }
@@ -24,10 +25,11 @@ pipeline {
                     steps {
                         sh './configure'
                         sh 'make -j8'
+                        sh 'cp out/Release/node node_fedora_27_x86_64'
                     }
                     post {
                         success {
-                            archive "out/Release/node"
+                            archive 'node_fedora_27_x86_64'
                         }
                     }
                 }
