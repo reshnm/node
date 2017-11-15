@@ -8,9 +8,13 @@ pipeline {
                         dockerfile { dir 'docker/ubuntu_16_04_x86_64' }
                     }
                     steps {
-                        sh 'make clean'
                         sh './configure'
                         sh 'make -j8'
+                    }
+                    post {
+                        success {
+                            archive "out/Release/node"
+                        }
                     }
                 }
                 stage('Fedora 27 x86_64') {
@@ -18,9 +22,13 @@ pipeline {
                         dockerfile { dir 'docker/fedora_27_x86_64' }
                     }
                     steps {
-                        sh 'make clean'
                         sh './configure'
                         sh 'make -j8'
+                    }
+                    post {
+                        success {
+                            archive "out/Release/node"
+                        }
                     }
                 }
             }
