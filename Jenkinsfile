@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 sh './configure'
-                sh 'make -j8'
+                sh 'make -j8 clean all'
             }
         }
         stage('Fedora 27 x86_64') {
@@ -16,7 +16,7 @@ pipeline {
             }
             steps {
                 sh './configure'
-                sh 'make -j8'
+                sh 'make -j8 clean all'
             }
         }
     }
