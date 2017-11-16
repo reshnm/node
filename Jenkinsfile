@@ -3,9 +3,6 @@ pipeline {
     stages {
         stage('Build') {
             parallel {
-                agent {
-                    label 'master'
-                }
                 stage('Ubuntu 16.04 x86_64') {
                     agent {
                         dockerfile { dir 'docker/ubuntu_16_04_x86_64' }
