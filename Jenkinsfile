@@ -2,6 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Build') {
+            agent {
+                label 'master'
+            }
             parallel {
                 stage('Ubuntu 16.04 x86_64') {
                     agent {
